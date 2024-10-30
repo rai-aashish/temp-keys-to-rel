@@ -1,6 +1,7 @@
-import type { Config } from 'tailwindcss';
-import { withTV } from 'tailwind-variants/transformer';
+import type { Config } from 'tailwindcss/types/config';
 import plugin from 'tailwindcss/plugin';
+
+import { withTV } from 'tailwind-variants/transformer';
 
 const base: Config = {
   darkMode: 'class',
@@ -49,6 +50,12 @@ const base: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+
+        'primary-accent': {
+          DEFAULT: '#FFBD28',
+          foreground: '#1e1e1e',
+        },
+
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

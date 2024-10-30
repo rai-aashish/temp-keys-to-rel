@@ -2,9 +2,11 @@ import * as React from 'react';
 
 import { Loader } from 'lucide-react';
 import Link, { LinkProps } from 'next/link';
+import { tv, VariantProps } from 'tailwind-variants';
+import config from '../../../tailwind.config';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
-import { tv, VariantProps, cnBase as cn } from 'tailwind-variants';
-import tailwindConfig from '../../../tailwind.config';
+const resolvedConfig = resolveConfig(config);
 
 const buttonVariants = tv(
   {
@@ -22,7 +24,7 @@ const buttonVariants = tv(
     variants: {
       variant: {
         primary: {
-          root: 'bg-[#FFBD28] text-[#1E1E1E] data-[disabled=false]:hover:bg-[#FFBD30]',
+          root: 'bg-primary-accent text-primary-accent-foreground data-[disabled=false]:hover:bg-[#FFBD30]',
           iconWrapper: 'bg-[#1E1E1E] text-[#FFFFFF]',
           icon: '',
         },
@@ -58,15 +60,9 @@ const buttonVariants = tv(
   },
   {
     responsiveVariants: true,
-    twMerge: true,
     twMergeConfig: {
-      extend: {
-        classGroups: {
-          // Ensures that the fontSize custom class group is merged correctly
-          // Ref: https://github.com/dcastil/tailwind-merge/issues/97
-          'font-size': [{ text: Object.keys(tailwindConfig.theme?.fontSize || []) }],
-          'font-weight': [{ text: Object.keys(tailwindConfig.theme?.fontWeight || []) }],
-        },
+      classGroups: {
+        'font-size': [''],
       },
     },
   },
@@ -121,6 +117,7 @@ function ConditionalButtonComponent({
   className,
   variant,
   size,
+  unStyled,
 
   classNames,
   ref,
@@ -131,6 +128,8 @@ function ConditionalButtonComponent({
   const { root, iconWrapper, icon } = buttonVariants({ variant, size });
 
   const isDisabled = disabled || loading;
+
+  console.log(resolvedConfig);
 
   return (
     <Tag

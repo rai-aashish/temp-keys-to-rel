@@ -8,9 +8,9 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib';
 import Logo from '@/assets/logo.webp';
 import { useScrollPosition } from '@/hooks';
+import Container from '@/components/common/container';
 import GlobalSearch from '@/components/common/global-search';
 import { ButtonLink, Separator, Typography } from '@/components/ui';
-import Container from '@/components/common/container';
 
 import { MobileNav } from './mobile-nav';
 
