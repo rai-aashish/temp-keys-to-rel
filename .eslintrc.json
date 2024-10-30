@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier",
+    "plugin:tailwindcss/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": "on",
+    "react/jsx-key": "on",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/classnames-order": "warn",
+    "no-console": "warn",
+    "no-extra-boolean-cast": "warn",
+    "react/display-name": "true",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-useless-escape": "warn",
+    "prefer-const": "warn"
+  }
+}

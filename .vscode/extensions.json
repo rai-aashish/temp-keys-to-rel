@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    // Tailwind CSS Intellisense
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "aaron-bond.better-comments",
+    "johnpapa.vscode-peacock",
+    "heybourn.headwind",
+    "pratishshr.bharyang-vscode",
+    "wallabyjs.console-ninja",
+    "sainoba.px-to-rem",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
