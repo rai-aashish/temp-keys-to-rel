@@ -157,6 +157,24 @@ const base = {
             radial-gradient(93.18% 693.95% at 104.42% 349.03%, #FF4F28 0%, #FF8F28 46%, #FFBD28 100%)
           `,
         },
+        '.bg-radial-primary-gradient': {
+          background: 'radial-gradient(213.53% 1256.16% at 127.92% 377.15%, #FF4F28 0%, #FF8F28 70.93%, #FFBD28 100%)',
+        },
+        '.notch': {
+          '--r': '20px',
+          /* control the rounded part*/
+          '--s': '20px',
+          /* control the size of the cut */
+          ' --a': '30deg',
+          /* control the depth of the curvature*/
+          '--_d': '(var(--s) + var(--r))*cos(var(--a))',
+          '--_m': `100%/calc(2*var(--r)) calc(2*var(--r)) no-repeat radial-gradient(50% 50%, #000 calc(100%), #0000)`,
+          mask: `calc(50% + var(--_d)) var(--_m), calc(50% - var(--_d)) var(--_m),
+            radial-gradient(var(--s) at 50% calc(100% + sin(var(--a))*var(--s)),
+              #0000 100%, #000 calc(100%)) 0 calc(var(--r)*(sin(var(--a)) - 1)) no-repeat,
+            linear-gradient(90deg, #000 calc(50% - var(--_d)), #0000 0 calc(50% + var(--_d)), #000 0);
+            `,
+        },
       });
     }),
     plugin(function ({ addUtilities }) {
