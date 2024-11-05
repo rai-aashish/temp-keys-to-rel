@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-
-import { RootLayout as Layout } from './_components/root-layout';
+import { RootLayout as Layout } from './_components/root-layout/index';
 
 import './globals.css';
 

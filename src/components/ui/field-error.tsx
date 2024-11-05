@@ -4,7 +4,7 @@ import { cn } from '@/lib';
 
 const FieldError = React.forwardRef<HTMLParagraphElement, React.ComponentPropsWithRef<'p'>>(
   ({ className, ...props }, ref) => {
-    return <p ref={ref} className={cn('text-destructive text-sm font-medium', className)} {...props} />;
+    return <p ref={ref} className={cn(['text-sm font-medium text-destructive', className])} {...props} />;
   },
 );
 

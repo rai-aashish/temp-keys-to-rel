@@ -1,12 +1,9 @@
 import * as React from 'react';
 
 import { Loader } from 'lucide-react';
-import Link, { LinkProps } from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
-import config from '../../../tailwind.config';
-import resolveConfig from 'tailwindcss/resolveConfig';
-
-const resolvedConfig = resolveConfig(config);
+import Link, { LinkProps } from 'next/link';
+import { classGroups } from '@/constants';
 
 const buttonVariants = tv(
   {
@@ -23,6 +20,16 @@ const buttonVariants = tv(
     },
     variants: {
       variant: {
+        menu: {
+          root: 'place-items-center justify-center rounded-full bg-transparent hover:bg-black/10',
+          iconWrapper: '',
+          icon: 'size-5',
+        },
+        unstyled: {
+          root: '',
+          iconWrapper: '',
+          icon: '',
+        },
         primary: {
           root: 'bg-primary-accent text-primary-accent-foreground data-[disabled=false]:hover:bg-[#FFBD30]',
           iconWrapper: 'bg-[#1E1E1E] text-[#FFFFFF]',
@@ -37,19 +44,35 @@ const buttonVariants = tv(
       },
       size: {
         sm: {
-          root: 'gap-2 rounded-md px-3 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
+          root: 'gap-2 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
           iconWrapper: 'size-7',
           icon: 'size-3.5',
         },
         md: {
-          root: 'gap-2 rounded-[12.5rem] px-6 py-2 text-bu-m font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
+          root: 'gap-2 rounded-[12.5rem] py-2 text-bu-m font-bold data-[has-left-icon=false]:pl-6 data-[has-left-icon=true]:pl-2 data-[has-right-icon=false]:pr-6 data-[has-right-icon=true]:pr-2',
           iconWrapper: 'size-8',
           icon: 'size-4',
         },
         lg: {
-          root: 'text-bul-l gap-3 rounded-md px-8 font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
+          root: 'text-bul-l gap-3 rounded-[12.5rem] px-8 py-2 font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
           iconWrapper: 'size-6',
           icon: 'size-3',
+        },
+
+        'menu-lg': {
+          root: 'size-12 rounded-full',
+        },
+
+        'menu-md': {
+          root: 'size-10 rounded-full',
+        },
+        'menu-sm': {
+          root: 'size-8 rounded-full',
+        },
+        none: {
+          root: '',
+          iconWrapper: '',
+          icon: '',
         },
       },
     },
@@ -59,11 +82,10 @@ const buttonVariants = tv(
     },
   },
   {
+    twMerge: true,
     responsiveVariants: true,
     twMergeConfig: {
-      classGroups: {
-        'font-size': [''],
-      },
+      classGroups,
     },
   },
 );
@@ -82,7 +104,6 @@ type CommonProps = {
     rightIcon?: string;
   };
   children?: React.ReactNode;
-  unStyled?: boolean;
   disabled?: boolean;
 } & ButtonVariantProps;
 
@@ -117,8 +138,6 @@ function ConditionalButtonComponent({
   className,
   variant,
   size,
-  unStyled,
-
   classNames,
   ref,
   ...props
@@ -128,8 +147,6 @@ function ConditionalButtonComponent({
   const { root, iconWrapper, icon } = buttonVariants({ variant, size });
 
   const isDisabled = disabled || loading;
-
-  console.log(resolvedConfig);
 
   return (
     <Tag

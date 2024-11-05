@@ -36,9 +36,9 @@ const HeroSection = () => {
             rightIcon={Search}
             leftIcon={() => <span className="invisible md:hidden"></span>}
             classNames={{
-              leftIconWrapper: 'invisible',
+              leftIconWrapper: 'invisible md:hidden',
             }}
-            className="justify-between self-stretch md:grow-0 md:justify-center md:self-end lg:self-center"
+            className="justify-between self-stretch md:grow-0 md:justify-center md:self-end md:data-[has-left-icon=true]:pl-6 lg:self-center"
           >
             Search Location
           </ButtonLink>

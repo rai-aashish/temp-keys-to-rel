@@ -43,8 +43,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           onClick={handleWrapperClick}
           className={cn([
             'flex items-center gap-x-2 duration-150',
-            'px-3 py-[0.8438rem] rounded-[200px] hover:border-black/20',
-            'border border-[#1E1E1E1F] has-[input:focus]:outline-1 has-[input:focus-visible]:ring-ring has-[input:focus-visible]:ring-1  has-[input:focus-visible]:ring-offset-1 has-[input:focus-visible]:outline-none',
+            'rounded-[200px] px-3 py-[0.8438rem] hover:border-black/20',
+            'border border-[#1E1E1E1F] has-[input:focus-visible]:outline-none has-[input:focus]:outline-1 has-[input:focus-visible]:ring-1 has-[input:focus-visible]:ring-ring has-[input:focus-visible]:ring-offset-1',
             'has-[input:disabled]:cursor-not-allowed has-[input:disabled]:disabled:opacity-50',
             Boolean(error) && 'border-destructive',
             'ring-offset-background',
@@ -55,7 +55,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             type={type}
             className={cn(
-              'border-none grow outline-none bg-transparent placeholder:text-muted-foreground',
+              'grow border-none bg-transparent outline-none placeholder:text-muted-foreground',
               classNames?.input,
             )}
             ref={mergedRef}

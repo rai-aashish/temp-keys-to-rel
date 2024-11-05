@@ -8,11 +8,11 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib';
 import Logo from '@/assets/logo.webp';
 import { useScrollPosition } from '@/hooks';
-import Container from '@/components/common/container';
 import GlobalSearch from '@/components/common/global-search';
 import { ButtonLink, Separator, Typography } from '@/components/ui';
-
 import { MobileNav } from './mobile-nav';
+import Container from '@/components/common/container';
+import { ClassValue } from 'tailwind-variants';
 
 function Header({ ref, ...className }: React.ComponentPropsWithRef<'header'>) {
   const { y } = useScrollPosition();
@@ -23,7 +23,7 @@ function Header({ ref, ...className }: React.ComponentPropsWithRef<'header'>) {
       className={cn([
         'fixed left-0 right-0 top-0 z-50 duration-150',
         y > 10 && 'bg-background/10 backdrop-blur-sm',
-        className as string,
+        className as ClassValue,
       ])}
     >
       <Container className="flex items-center justify-between py-5 text-[#F7F1E3]">

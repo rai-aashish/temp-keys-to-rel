@@ -1,9 +1,8 @@
-import type { Config } from 'tailwindcss/types/config';
-import plugin from 'tailwindcss/plugin';
+const plugin = require('tailwindcss/plugin');
+const { withTV } = require('tailwind-variants/transformer');
 
-import { withTV } from 'tailwind-variants/transformer';
-
-const base: Config = {
+/** @type {import('tailwindcss').Config} */
+const base = {
   darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -164,6 +163,6 @@ const base: Config = {
   ],
 };
 
-const config = withTV(base);
-
-export default config;
+module.exports = withTV(base, {
+  aliases: ['@/lib/tv'],
+});

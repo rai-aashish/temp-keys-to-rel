@@ -3,13 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import { cn } from '@/lib';
 import { useToggle } from '@/hooks';
 import GiftImage from '@/assets/gift.webp';
 import BookImage from '@/assets/book-xs.webp';
 import { Button, ButtonLink } from '@/components/ui';
+import { MotionDiv } from '@/components/motion/elements';
 
 const GiftClaim = () => {
   const [showGiftUI, { set: setShowGiftUI }] = useToggle(true);
@@ -19,7 +20,7 @@ const GiftClaim = () => {
   return (
     <AnimatePresence>
       {showGiftUI && (
-        <motion.div
+        <MotionDiv
           initial={{
             opacity: 0,
           }}
@@ -36,7 +37,7 @@ const GiftClaim = () => {
         >
           <AnimatePresence>
             {showClaimButton && (
-              <motion.div
+              <MotionDiv
                 initial={{
                   opacity: 0,
                   translateX: '100%',
@@ -56,8 +57,9 @@ const GiftClaim = () => {
               >
                 <ButtonLink
                   href="#"
-                  unStyled
-                  className="relative overflow-visible rounded-[12.5rem] py-7.5 pl-22 pr-5 text-[1.25rem] font-extrabold leading-[1.2] text-[#1E1E1E] shadow-[0.375rem_1.5625rem_1.9125rem_0px_#00000059] bg-primary-gradient"
+                  variant="unstyled"
+                  size="none"
+                  className="relative h-[5.25rem] overflow-visible rounded-[12.5rem] pl-22 pr-5 text-[1.25rem] font-extrabold leading-[1.2] text-[#1E1E1E] shadow-[0.375rem_1.5625rem_1.9125rem_0px_#00000059] bg-primary-gradient"
                 >
                   <Book className="absolute bottom-[1.3125rem] left-4 h-[4.6875rem] w-14" />
                   Claim Your Free Gift
@@ -65,12 +67,13 @@ const GiftClaim = () => {
 
                 <Button
                   onClick={() => setClaimButton(false)}
-                  unStyled
-                  className="absolute right-0 top-0 z-50 inline-grid size-7.5 -translate-y-[15%] translate-x-[40%] place-items-center rounded-full bg-white text-black"
+                  variant="unstyled"
+                  size="none"
+                  className="absolute right-0 top-0 z-50 inline-grid size-10 -translate-y-[15%] translate-x-[40%] place-items-center overflow-hidden rounded-full bg-white text-black"
                 >
-                  <X className="size-3.5" />
+                  <X className="size-6" />
                 </Button>
-              </motion.div>
+              </MotionDiv>
             )}
           </AnimatePresence>
 
@@ -87,13 +90,14 @@ const GiftClaim = () => {
               onClick={() => {
                 setShowGiftUI(false);
               }}
-              unStyled
+              variant="unstyled"
+              size="none"
               className="absolute right-0 top-0 z-50 inline-grid size-7.5 -translate-y-[15%] translate-x-[40%] place-items-center rounded-full bg-white text-black"
             >
               <X className="size-3.5" />
             </Button>
           </div>
-        </motion.div>
+        </MotionDiv>
       )}
     </AnimatePresence>
   );
