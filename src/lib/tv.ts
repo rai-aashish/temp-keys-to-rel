@@ -14,4 +14,4 @@ const tv: TV = (props) =>
   });
 
 export type { VariantProps };
-export default tv;
+export { tv };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Loader } from 'lucide-react';
-import { tv, VariantProps } from 'tailwind-variants';
+import { tv, VariantProps } from '@/lib';
 import Link, { LinkProps } from 'next/link';
 import { classGroups } from '@/constants';
 
@@ -44,7 +44,7 @@ const buttonVariants = tv(
       },
       size: {
         sm: {
-          root: 'xs:gap-2 gap-1 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
+          root: 'gap-1 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2 xs:gap-2',
           iconWrapper: 'size-7',
           icon: 'size-3.5',
         },
@@ -83,7 +83,6 @@ const buttonVariants = tv(
   },
   {
     twMerge: true,
-    responsiveVariants: true,
     twMergeConfig: {
       classGroups,
     },
