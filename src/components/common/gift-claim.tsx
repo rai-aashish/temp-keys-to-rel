@@ -59,9 +59,9 @@ const GiftClaim = () => {
                   href="#"
                   variant="unstyled"
                   size="none"
-                  className="relative h-[5.25rem] overflow-visible rounded-[12.5rem] pl-22 pr-5 text-[1.25rem] font-extrabold leading-[1.2] text-[#1E1E1E] shadow-[0.375rem_1.5625rem_1.9125rem_0px_#00000059] bg-primary-gradient"
+                  className="relative h-[4rem] overflow-visible rounded-[12.5rem] pl-20 pr-5 text-s3 font-extrabold leading-[1.2] text-[#1E1E1E] shadow-[0.375rem_1.5625rem_1.9125rem_0px_#00000059] bg-primary-gradient md:h-[5.25rem] md:pl-22 md:text-[1.25rem]"
                 >
-                  <Book className="absolute bottom-[1.3125rem] left-4 h-[4.6875rem] w-14" />
+                  <Book className="absolute bottom-[1.3125rem] left-4 aspect-[56/75] w-12 md:w-14" />
                   Claim Your Free Gift
                 </ButtonLink>
 
@@ -69,9 +69,9 @@ const GiftClaim = () => {
                   onClick={() => setClaimButton(false)}
                   variant="unstyled"
                   size="none"
-                  className="absolute right-0 top-0 z-50 inline-grid size-10 -translate-y-[15%] translate-x-[40%] place-items-center overflow-hidden rounded-full bg-white text-black"
+                  className="absolute right-0 top-0 z-50 inline-grid size-8 -translate-y-[15%] translate-x-[40%] place-items-center overflow-hidden rounded-full bg-white text-black md:size-10"
                 >
-                  <X className="size-6" />
+                  <X className="size-5 md:size-6" />
                 </Button>
               </MotionDiv>
             )}
@@ -80,10 +80,13 @@ const GiftClaim = () => {
           {/* main gift icon */}
           <div
             onMouseEnter={() => setClaimButton(true)}
+            onClick={() => setClaimButton(true)}
             tabIndex={0}
-            className={cn(['relative inline-grid size-23 place-items-center rounded-full bg-primary-gradient'])}
+            className={cn([
+              'relative inline-grid size-18 place-items-center rounded-full bg-primary-gradient md:size-23',
+            ])}
           >
-            <span className="relative inline-grid size-20 place-items-center overflow-hidden rounded-full bg-white shadow-highlight">
+            <span className="relative inline-grid size-16 place-items-center overflow-hidden rounded-full bg-white shadow-highlight md:size-20">
               <Image src={GiftImage} fill quality={100} alt="gift-image" className="object-scale-down" />
             </span>
             <Button

@@ -47,6 +47,7 @@ const base = {
     },
     extend: {
       colors: {
+        shiny: '#CCBC9A',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
 
@@ -99,8 +100,9 @@ const base = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+
       dropShadow: {
-        shiny: '0px 0px 31px 0px #F6F1E645,0px 3px 1.8px 0px #FFFFFF inset,0px -1px 1.8px 0px #FFFFFF inset',
+        shiny: '0px -1px 1.8px 0px #FFFFFF inset',
       },
       spacing: {
         4.5: '1.125rem', //18px
@@ -127,6 +129,10 @@ const base = {
         'lg-gutter': '1.875rem', //30px
         'md-gutter': '1.25rem', //20px
         'sm-gutter': '1rem', //16px
+      },
+      screens: {
+        xxs: '300px',
+        xs: '480px',
       },
     },
     container: {
@@ -163,6 +169,4 @@ const base = {
   ],
 };
 
-module.exports = withTV(base, {
-  aliases: ['@/lib/tv'],
-});
+module.exports = withTV(base);

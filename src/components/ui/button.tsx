@@ -44,7 +44,7 @@ const buttonVariants = tv(
       },
       size: {
         sm: {
-          root: 'gap-2 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
+          root: 'xs:gap-2 gap-1 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
           iconWrapper: 'size-7',
           icon: 'size-3.5',
         },
@@ -54,9 +54,9 @@ const buttonVariants = tv(
           icon: 'size-4',
         },
         lg: {
-          root: 'text-bul-l gap-3 rounded-[12.5rem] px-8 py-2 font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2',
-          iconWrapper: 'size-6',
-          icon: 'size-3',
+          root: 'gap-3 rounded-[12.5rem] px-8 py-[1.0938rem] text-bu-l font-bold data-[has-icon]:py-2 data-[has-left-icon=false]:pl-6 data-[has-right-icon=true]:pr-2',
+          iconWrapper: 'size-10',
+          icon: 'size-6',
         },
 
         'menu-lg': {
@@ -147,14 +147,17 @@ function ConditionalButtonComponent({
   const { root, iconWrapper, icon } = buttonVariants({ variant, size });
 
   const isDisabled = disabled || loading;
-
+  const hasLeftIcon = Boolean(LeftIcon);
+  const hasRightIcon = Boolean(RightIcon);
+  const hasIcon = hasLeftIcon || hasRightIcon;
   return (
     <Tag
       ref={ref}
       disabled={isDisabled}
       data-disabled={isDisabled}
-      data-has-left-icon={Boolean(LeftIcon)}
-      data-has-right-icon={Boolean(RightIcon)}
+      data-has-left-icon={hasLeftIcon}
+      data-has-right-icon={hasRightIcon}
+      data-has-icon={hasIcon}
       tabIndex={isDisabled ? -1 : 0}
       className={root({ className })}
       {...props}

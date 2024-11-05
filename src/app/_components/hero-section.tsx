@@ -8,11 +8,13 @@ import { MapPin, Pin, Search } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen">
-      <Image src={HeroImage} fill quality={100} alt="hero-image" className="object-cover" />
+    <section className="relative">
+      <div className="relative h-screen">
+        <Image src={HeroImage} fill quality={100} alt="hero-image" className="object-cover" />
+      </div>
 
       {/* sticky bar */}
-      <div className="absolute bottom-0 left-0 w-full py-4 bg-primary-gradient">
+      <div className="w-full py-4 bg-primary-gradient md:absolute md:bottom-0 md:left-0">
         <Container className="flex flex-col items-center justify-between gap-4 text-[#1E1E1E] md:flex-row">
           <div className="flex flex-col gap-5 md:flex-row lg:items-center">
             <span className="mx-auto inline-grid size-12 shrink-0 place-items-center self-start rounded-full bg-white lg:size-15 lg:self-center">
