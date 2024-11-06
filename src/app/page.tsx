@@ -7,8 +7,8 @@ import {
   IncludedTopicsSection,
   FreeAdmissionPromo,
   FAQSection,
+  EventLocationSearchSection,
 } from '@/app/_components';
-import ContentBox from '@/components/common/content-box';
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <BookRevelationSection />
       <IncludedTopicsSection />
+      <EventLocationSearchSection />
       <FAQSection />
       <FreeAdmissionPromo />
     </>

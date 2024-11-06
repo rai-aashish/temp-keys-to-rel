@@ -4,5 +4,7 @@ export * from './button';
 export * from './typography';
 export * from './separator';
 export * from './accordion';
+export * from './scroll-area';
 export * from './field-error';
 export * from './field-description';
+export * from './alert-dialog';

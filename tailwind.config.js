@@ -77,6 +77,9 @@ const base = {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'hsl(var(--border))',
+        stroke: {
+          DEFAULT: 'hsl(var(--stroke-default))',
+        },
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
@@ -139,6 +142,9 @@ const base = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      backdropBlur: {
+        bg: '2.125rem',
+      },
     },
     container: {
       center: 'true',
@@ -153,6 +159,7 @@ const base = {
   plugins: [
     // eslint-disable-next-line
     require('tailwindcss-animate'),
+    require('tailwind-container-break-out'),
 
     plugin(function ({ addUtilities }) {
       addUtilities({

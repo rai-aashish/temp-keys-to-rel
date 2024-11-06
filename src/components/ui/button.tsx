@@ -192,5 +192,5 @@ ConditionalButtonComponent.displayName = 'ConditionalButtonComponent__Component'
 ButtonLink.displayName = 'ButtonLink__Component';
 Button.displayName = 'Button__Component';
 
-export type { ButtonProps, ButtonLinkProps };
-export { Button, ButtonLink };
+export type { ButtonVariantProps, ButtonProps, ButtonLinkProps };
+export { buttonVariants, Button, ButtonLink };

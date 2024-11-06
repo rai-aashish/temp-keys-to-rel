@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const mergedRef = useMergeRefs([ref, forwardedRef]);
 
     const handleWrapperClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      ref.current?.focus();
+      ref.current?.click();
     };
 
     return (
@@ -44,7 +44,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn([
             'flex items-center gap-x-2 duration-150',
             'rounded-[200px] px-3 py-[0.8438rem] hover:border-black/20',
-            'border border-[#1E1E1E1F] has-[input:focus-visible]:outline-none has-[input:focus]:outline-1 has-[input:focus-visible]:ring-1 has-[input:focus-visible]:ring-ring has-[input:focus-visible]:ring-offset-1',
+            'border border-[#1E1E1E1F] has-[input:focus-visible]:outline-none',
+            // 'has-[input:focus]:outline-1 has-[input:focus-visible]:ring-1 has-[input:focus-visible]:ring-ring has-[input:focus-visible]:ring-offset-1',
             'has-[input:disabled]:cursor-not-allowed has-[input:disabled]:disabled:opacity-50',
             Boolean(error) && 'border-destructive',
             'ring-offset-background',
