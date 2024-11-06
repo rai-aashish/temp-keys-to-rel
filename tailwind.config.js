@@ -3,7 +3,7 @@ const { withTV } = require('tailwind-variants/transformer');
 
 /** @type {import('tailwindcss').Config} */
 const base = {
-  darkMode: 'class',
+  darkMode: ['class', 'class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,7 +11,6 @@ const base = {
   ],
   theme: {
     fontSize: {
-      // === HEADING STYLES ====
       sh1: ['2.5rem', { fontWeight: '700', lineHeight: '1.2' }],
       sh2: ['2rem', { fontWeight: '700', lineHeight: '1.1' }],
       sh3: ['1.5rem', { lineHeight: '1.1' }],
@@ -21,23 +20,17 @@ const base = {
       h4: ['1.5rem', { fontWeight: '800', lineHeight: '1.2', letterSpacing: '-0.01em' }],
       h5: ['1.25rem', { fontWeight: '800', lineHeight: '1.3', letterSpacing: '-0.01em' }],
       h6: ['1.125rem', { fontWeight: '800', lineHeight: '1.4', letterSpacing: '-0.005em' }],
-      // === Subheading STYLES ====
       s1: ['1.5rem', { fontWeight: '600', lineHeight: '1.5', letterSpacing: '-0.015em' }],
       s2: ['1.25rem', { fontWeight: '600', lineHeight: '1.5', letterSpacing: '-0.01em' }],
       s3: ['1.125rem', { fontWeight: '600', lineHeight: '1.4' }],
-
-      // ===== BODY STYLES =====
       b1: ['1rem', { fontWeight: '400', lineHeight: '1.5' }],
       'b1-b': ['1rem', { fontWeight: '500', lineHeight: '1.5' }],
       b2: ['0.875rem', { fontWeight: '400', lineHeight: '1.5' }],
       'b2-b': ['0.875rem', { fontWeight: '500', lineHeight: '1.5' }],
-      // ===== CAPTION STYLES =====
       c1: ['0.8125rem', { fontWeight: '400', lineHeight: '1.3' }],
       'c1-b': ['0.8125rem', { fontWeight: '500', lineHeight: '1.3' }],
       c2: ['0.6875rem', { fontWeight: '400', lineHeight: '1.3' }],
       'c2-b': ['0.6875rem', { fontWeight: '500', lineHeight: '1.3' }],
-
-      // === BUTTON STYLES ====
       'bu-l': ['1.125rem', { fontWeight: '700', lineHeight: '1.5' }],
       'bu-m': ['1rem', { fontWeight: '700', lineHeight: '1.5' }],
       'bu-s': ['0.875rem', { fontWeight: '700', lineHeight: '1.5' }],
@@ -50,12 +43,10 @@ const base = {
         shiny: '#CCBC9A',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-
         'primary-accent': {
           DEFAULT: '#FFBD28',
           foreground: '#1e1e1e',
         },
-
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -100,43 +91,56 @@ const base = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-
       dropShadow: {
         shiny: '0px -1px 1.8px 0px #FFFFFF inset',
       },
       spacing: {
-        4.5: '1.125rem', //18px
-        5.5: '1.375rem', //22px
-        6.5: '1.625rem', //26px
-        7.5: '1.875rem', //30px
-        12.5: '3.125rem', //50px
-        13: '3.25rem', //52px
-        15: '3.75rem', //60px
-        17: '4.25rem', //68px
-        18: '4.5rem', //72px
-        19: '4.75rem', //76px
-        21: '5.25rem', //84px
-        22: '5.5rem', //88px
-        23: '5.75rem', //92px
-        25: '6.25rem', //100px
-        29: '7.25rem', //116px
-        29.5: '7.375rem', //118px
-        31: '7.75rem', //124px
-        35.5: '8.875rem', //142px
-        37: '9.25rem', //148px
-        49: '12.25rem', //196px
-        56: '14rem', // 224px
-        'lg-gutter': '1.875rem', //30px
-        'md-gutter': '1.25rem', //20px
-        'sm-gutter': '1rem', //16px
+        13: '3.25rem',
+        15: '3.75rem',
+        17: '4.25rem',
+        18: '4.5rem',
+        19: '4.75rem',
+        21: '5.25rem',
+        22: '5.5rem',
+        23: '5.75rem',
+        25: '6.25rem',
+        29: '7.25rem',
+        31: '7.75rem',
+        37: '9.25rem',
+        49: '12.25rem',
+        56: '14rem',
+        4.5: '1.125rem',
+        5.5: '1.375rem',
+        6.5: '1.625rem',
+        7.5: '1.875rem',
+        12.5: '3.125rem',
+        29.5: '7.375rem',
+        35.5: '8.875rem',
+        'lg-gutter': '1.875rem',
+        'md-gutter': '1.25rem',
+        'sm-gutter': '1rem',
       },
       screens: {
         xxs: '300px',
         xs: '480px',
       },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
     },
     container: {
-      center: true,
+      center: 'true',
       padding: {
         DEFAULT: '2rem',
         sm: '1.25rem',

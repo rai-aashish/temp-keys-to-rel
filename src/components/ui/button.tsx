@@ -40,6 +40,10 @@ const buttonVariants = tv(
           iconWrapper: 'bg-[#FFBD28] text-[#1E1E1E]',
           icon: '',
         },
+        'outlined-secondary': {
+          root: 'border border-[#F7F1E31F] bg-[#F7F1E305] text-[#F7F1E3]',
+          iconWrapper: 'bg-[#F7F1E3] text-[#131313]',
+        },
         destructive: 'bg-destructive text-destructive-foreground data-[disabled=false]:hover:bg-destructive/90',
       },
       size: {

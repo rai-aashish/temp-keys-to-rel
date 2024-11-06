@@ -23,7 +23,7 @@ function FooterLink({ className, children, ...props }: LinkProps & React.Compone
   );
 }
 
-function Footer({ className, ...props }: React.ComponentPropsWithRef<'footer'>) {
+function Footer({ className, ...props }: React.ComponentPropsWithoutRef<'footer'>) {
   const CURRENT_YEAR = new Date().getFullYear();
 
   return (

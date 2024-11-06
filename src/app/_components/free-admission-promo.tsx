@@ -14,7 +14,15 @@ const FreeAdmissionPromo = () => {
       <div className="relative isolate mx-auto md:mb-14 md:min-h-[14.5rem] md:max-w-[calc(100%-30px)] lg:mb-22 lg:h-[21.625rem] lg:max-w-[62.5rem]">
         <div className="h-full w-full overflow-hidden rounded-xl shadow-2xl shadow-[black]">
           <div className="relative flex h-full flex-col md:flex-row">
+            {/* LEFT section */}
             <div className="relative aspect-[335/308] grow md:aspect-[unset]">
+              <div
+                className={cn([
+                  'pointer-events-none absolute inset-0 z-10',
+                  'border-[#787878] md:border-r-2 md:border-dashed',
+                ])}
+              ></div>
+
               <Image src={BookImage} fill alt="book-thumbnail" className="object-cover" />
 
               {/* typography */}

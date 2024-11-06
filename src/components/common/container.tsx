@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cn } from '@/lib';
 
-interface IContainerProps extends React.ComponentPropsWithRef<React.ElementType> {
+interface IContainerProps extends React.ComponentPropsWithRef<'div'> {
   gridLayout?: boolean;
   fluid?: boolean;
   as?: React.ElementType;
