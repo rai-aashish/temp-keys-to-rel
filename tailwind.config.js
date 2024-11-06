@@ -14,6 +14,7 @@ const base = {
       sh1: ['2.5rem', { fontWeight: '700', lineHeight: '1.2' }],
       sh2: ['2rem', { fontWeight: '700', lineHeight: '1.1' }],
       sh3: ['1.5rem', { lineHeight: '1.1' }],
+      sh4: ['1.25rem', { lineHeight: '1.1' }],
       h1: ['2.5rem', { fontWeight: '800', lineHeight: '1.2', letterSpacing: '-0.03em' }],
       h2: ['2.125rem', { fontWeight: '800', lineHeight: '1.2', letterSpacing: '-0.02em' }],
       h3: ['2rem', { fontWeight: '800', lineHeight: '1.2', letterSpacing: '-0.02em' }],
