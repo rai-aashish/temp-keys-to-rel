@@ -19,7 +19,7 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
   const SLIDES = [...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES];
 
   return (
-    <section className={cn(['relative mb-2 mt-16 h-screen', className])} {...props}>
+    <section className={cn(['relative mb-2 mt-16 h-screen overflow-hidden', className])} {...props}>
       <Container>
         <h2 className="mb-12 text-center text-sh4 font-bold uppercase text-shiny drop-shadow-shiny md:text-sh3 lg:text-sh2">
           Topics Include these and more!

@@ -16,13 +16,15 @@ import { ClassValue } from 'tailwind-variants';
 
 function Header({ ref, ...className }: React.ComponentPropsWithRef<'header'>) {
   const { y } = useScrollPosition();
+  const scrolled = y > 10;
 
   return (
     <header
+      data-scrolled={scrolled}
       ref={ref}
       className={cn([
-        'fixed left-0 right-0 top-0 z-50 duration-150',
-        y > 10 && 'bg-background/10 backdrop-blur-sm',
+        'group fixed left-0 right-0 top-0 z-50 duration-150',
+        scrolled && 'bg-background/30 backdrop-blur-sm',
         className as ClassValue,
       ])}
     >

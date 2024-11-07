@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Loader } from 'lucide-react';
-import { tv, VariantProps } from '@/lib';
+import { cn, tv, VariantProps } from '@/lib';
 import Link, { LinkProps } from 'next/link';
 import { classGroups } from '@/constants';
 
@@ -101,6 +101,7 @@ type CommonProps = {
   leftIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   rightIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   classNames?: {
+    root?: string;
     leftIconWrapper?: string;
     leftIcon?: string;
     rightIconWrapper?: string;
@@ -162,7 +163,7 @@ function ConditionalButtonComponent({
       data-has-right-icon={hasRightIcon}
       data-has-icon={hasIcon}
       tabIndex={isDisabled ? -1 : 0}
-      className={root({ className })}
+      className={root({ className: cn(className, classNames?.root) })}
       {...props}
     >
       {LeftIcon && (

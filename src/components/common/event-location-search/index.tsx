@@ -1,10 +1,10 @@
 import { cn } from '@/lib';
 import React from 'react';
 
-import { EventSearch } from './event-search';
-import { EventLocationResult } from '@/app/_components/event-location-search-section/event-location-result';
-import { ChurchEvent, EventLocationType } from '@/types';
 import { ScrollArea } from '@/components/ui';
+import { EventSearch } from './event-search';
+import { ChurchEvent, EventLocationType } from '@/types';
+import { EventLocationResult } from './event-location-result';
 
 const MOCK_EVENTS: Array<Partial<ChurchEvent>> = [
   {

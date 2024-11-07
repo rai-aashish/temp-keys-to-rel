@@ -17,22 +17,22 @@ const GlobalSearch = ({ className, ...props }: IGlobalSearchProps) => {
       <Button
         onClick={() => setOpen(true)}
         variant="unstyled"
-        className="inline-grid size-12 place-items-center rounded-full border border-[#1E1E1E1F] backdrop-blur-[2.125rem] lg:hidden"
+        size="none"
+        className={cn([
+          'gap-2',
+          'rounded-[200px] border',
+          'bg-[#1E1E1E0D] hover:bg-[#9d9d9d4d]',
+          'px-4 py-[0.8438rem] backdrop-blur-[2.125rem]',
+          'border-[#1E1E1E1F] group-data-[scrolled=true]:border-[#f7f1e380]',
+          'group-data-[scrolled=true]:bg-transparent group-data-[scrolled=true]:hover:bg-[#9d9d9d4d]',
+        ])}
       >
-        <Search className="size-5" />
-      </Button>
+        <Search className="size-5 group-data-[scrolled=true]:text-[#f7f1e380]" />
 
-      <Input
-        onClick={() => setOpen(true)}
-        placeholder="Search locations..."
-        className="hidden lg:block"
-        classNames={{
-          wrapper:
-            'pl-3 py-[0.8438rem] rounded-[200px] pr-0 backdrop-blur-[2.125rem] has-[input:focus]:bg-foreground hover:bg-foreground/60',
-          input: 'placeholder:text-[#1E1E1E9E]',
-        }}
-        leftSection={<Search className="size-5" />}
-      />
+        <span className="hidden text-[#1E1E1E9E] group-data-[scrolled=true]:text-[#F7F1E3] lg:inline-block">
+          Search locations...
+        </span>
+      </Button>
 
       <EventLocationSearchDialog open={open} onOpenChange={setOpen} />
     </div>

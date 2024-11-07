@@ -1,6 +1,7 @@
+import EventLocationLabel from '@/components/common/event-location-label';
 import { Button, ButtonLink } from '@/components/ui';
 import { cn } from '@/lib';
-import { ChurchEvent } from '@/types';
+import { ChurchEvent, EventLocationType } from '@/types';
 import { ArrowUpRight, Calendar, Clock, MapPin } from 'lucide-react';
 import React from 'react';
 
@@ -30,7 +31,15 @@ const EventLocationResult = ({ className, as = 'div', event }: IEventLocationRes
         </li>
         <li className="flex items-center gap-1">
           <Clock className="mr-2 size-4" />
-          8AM - 3PM
+          <span>8AM - 3PM</span>
+          {event.location_type && (
+            <EventLocationLabel
+              type={event.location_type}
+              classNames={{
+                root: 'ml-1',
+              }}
+            />
+          )}
         </li>
       </ul>
 
