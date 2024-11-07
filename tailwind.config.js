@@ -120,9 +120,9 @@ const base = {
         12.5: '3.125rem',
         29.5: '7.375rem',
         35.5: '8.875rem',
-        'lg-gutter': '1.875rem',
-        'md-gutter': '1.25rem',
-        'sm-gutter': '1rem',
+        'lg-screen-gutter': 'var(--lg-screen-gutter)',
+        'md-screen-gutter': 'var(--md-screen-gutter)',
+        'sm-screen-gutter': 'var(--sm-screen-gutter)',
       },
       screens: {
         xxs: '300px',

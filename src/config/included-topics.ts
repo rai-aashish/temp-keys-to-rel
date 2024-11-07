@@ -1,6 +1,12 @@
+import { StaticImageData } from 'next/image';
+
+import Im1 from '@/assets/topics/1.webp';
+import Im2 from '@/assets/topics/2.webp';
+import Im3 from '@/assets/topics/3.webp';
+
 type Slide = {
   image: {
-    src: string;
+    src: string | StaticImageData;
     alt: string;
   };
   title: string;
@@ -10,7 +16,7 @@ type Slide = {
 const INCLUDED_TOPICS_SLIDES: Slide[] = [
   {
     image: {
-      src: 'https://images.unsplash.com/photo-1523878291631-87283277f717?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amVzdXN8ZW58MHx8MHx8fDA%3D',
+      src: Im1,
       alt: '',
     },
     title: "REVELATION'S BATTLE FOR THRONE",
@@ -19,7 +25,7 @@ const INCLUDED_TOPICS_SLIDES: Slide[] = [
   },
   {
     image: {
-      src: 'https://plus.unsplash.com/premium_photo-1680266015910-9b454373e340?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amVzdXN8ZW58MHx8MHx8fDA%3D',
+      src: Im2,
       alt: '',
     },
     title: "REVELATION'S GLORY CLIMAX",
@@ -28,7 +34,7 @@ const INCLUDED_TOPICS_SLIDES: Slide[] = [
   },
   {
     image: {
-      src: 'https://plus.unsplash.com/premium_photo-1681803531285-75db948035d3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RhdHVlJTIwb2YlMjBsaWJlcnR5fGVufDB8fDB8fHww',
+      src: Im3,
       alt: '',
     },
     title: 'AMERICA IN BIBLE PROPHECY',

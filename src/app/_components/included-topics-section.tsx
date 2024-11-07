@@ -25,7 +25,9 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
         <h2 className="mb-12 text-center text-sh4 font-bold uppercase text-shiny drop-shadow-shiny md:text-sh3 lg:text-sh2">
           Topics Include these and more!
         </h2>
+      </Container>
 
+      <Container className="-mx-sm-screen-gutter md:-mx-md-screen-gutter lg:mx-auto">
         <SliderContextProvider swiper={swiper}>
           <div className="relative">
             <Swiper
@@ -42,6 +44,7 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
                 },
               }}
               centeredSlides
+              centeredSlidesBounds
               onInit={(swiper) => {
                 setSwiper(swiper);
               }}
@@ -87,12 +90,12 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
 
             <SliderNav
               type="prev"
-              className="absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-4 lg:left-0"
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 md:left-6 lg:left-0 lg:-translate-x-1/2"
             />
 
             <SliderNav
               type="next"
-              className="absolute right-6 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 md:right-4 lg:right-0"
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 md:right-6 lg:right-0 lg:translate-x-1/2"
             />
           </div>
           {/* pagination */}

@@ -5,6 +5,7 @@ const config = require('../tailwind.config.js');
 const classGroups = {
   'font-size': [{ text: Object.keys(config?.theme?.fontSize || {}) }],
   color: [{ text: Object.keys(config?.theme?.colors || {}) }],
+  padding: [{ padding: Object.keys(config?.theme?.spacing || {}) }],
 };
 
 // export this object to a file named class-group.ts

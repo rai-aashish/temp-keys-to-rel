@@ -34,7 +34,7 @@ const FAQSection = () => {
         </div>
 
         <div className="col-span-full lg:col-span-8">
-          <Accordion type="multiple" className="flex flex-col gap-y-2">
+          <Accordion type="multiple" defaultValue={['0']} className="flex flex-col gap-y-2">
             {FAQ.map(({ question, answer }, index) => {
               return (
                 <AccordionItem value={index.toString()} key={index}>

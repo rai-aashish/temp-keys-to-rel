@@ -32,6 +32,11 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --stroke-default:0 0% 100% / 0.14;
+
+    /* screen gutter */
+    --lg-screen-gutter: 3.75rem;
+    --md-screen-gutter: 1.875rem;
+    --sm-screen-gutter: 1.25rem;
   }
 
   .dark {
