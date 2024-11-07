@@ -51,11 +51,7 @@ function SliderNav(props: ISliderNavProps) {
       variant="unstyled"
       size="none"
       onClick={handleNav}
-      className={cn([
-        'bg-[background:linear-gradient(157.41deg,rgba(255,255,255,0.14)_-13.64%,rgba(255,255,255,0)_57.52%,rgba(255,255,255 0.14)_128.67%),linear-gradient(0deg,rgba(99,97,97,0.06),rgba(99,97,97,0.06))]',
-        'size-14 rounded-full p-0 backdrop-blur-[2.125rem]',
-        props?.className,
-      ])}
+      className={cn(['bg-glassmorphic border border-[#FFFFFF0E]', 'size-14 rounded-full p-0', props?.className])}
     >
       <Icon className="size-6" />
     </Button>

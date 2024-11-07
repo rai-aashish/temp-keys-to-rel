@@ -172,6 +172,12 @@ const base = {
         '.bg-radial-primary-gradient': {
           background: 'radial-gradient(213.53% 1256.16% at 127.92% 377.15%, #FF4F28 0%, #FF8F28 70.93%, #FFBD28 100%)',
         },
+
+        '.bg-glassmorphic': {
+          'backdrop-filter': 'blur(2.125rem)',
+          background:
+            'linear-gradient(157.41deg, rgba(255, 255, 255, 0.14) -13.64%, rgba(255, 255, 255, 0) 57.52%, rgba(255, 255, 255, 0.14) 128.67%)',
+        },
         '.notch': {
           '--r': '20px',
           /* control the rounded part*/

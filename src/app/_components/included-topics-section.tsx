@@ -12,9 +12,10 @@ import Container from '@/components/common/container';
 import { INCLUDED_TOPICS_SLIDES } from '@/config/included-topics';
 import { SliderContextProvider, SliderNav } from '@/components/common/slider';
 
+const bulletWrapperId = 'pagination-bullets--included-topics';
+
 function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWithRef<'section'>) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
-  const [boundary, setBoundary] = useState<'start' | 'end' | 'intermediate'>('start');
 
   const SLIDES = [...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES];
 
@@ -28,15 +29,23 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
         <SliderContextProvider swiper={swiper}>
           <div className="relative">
             <Swiper
-              centeredSlidesBounds
+              loop
+              pagination={{
+                el: `#${bulletWrapperId}`,
+                type: 'bullets',
+                clickable: true,
+                bulletClass: 'swiper-pagination-bullet',
+                bulletActiveClass: 'active',
+
+                renderBullet: function (index: number, className: string) {
+                  return `<span class="${cn([className])}"></span>`;
+                },
+              }}
               centeredSlides
               onInit={(swiper) => {
                 setSwiper(swiper);
               }}
               modules={[Pagination, Navigation]}
-              onSlideChange={(s) => {
-                setBoundary(s.isBeginning ? 'start' : s.isEnd ? 'end' : 'intermediate');
-              }}
               breakpoints={{
                 0: {
                   slidesPerView: 1.5,
@@ -54,14 +63,19 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
             >
               {SLIDES.map((card, index) => (
                 <SwiperSlide key={index}>
-                  {() => {
+                  {({ isActive }) => {
                     return (
-                      <div className="h-full rounded-2xl border-[0.1875rem] border-[#FFFFFF0E] bg-[linear-gradient(157.41deg,rgba(255,255,255,0.14)_-13.64%,rgba(255,255,255,0)_57.52%,rgba(255,255,255,0.14)_128.67%)] p-4 backdrop-blur-[2.125rem]">
+                      <div
+                        data-active={isActive}
+                        className="bg-glassmorphic h-full rounded-2xl border-[0.1875rem] border-[#FFFFFF0E] p-2 data-[active=false]:opacity-30 md:p-3 lg:data-[active=false]:opacity-100"
+                      >
                         <div className="relative aspect-[256/185] overflow-hidden rounded-t-xl md:aspect-[305/225] lg:aspect-[342/295]">
                           <Image src={card.image.src} alt={card.image.alt} fill className="object-cover" />
                         </div>
-                        <div className="px-2 pb-3 pt-6">
-                          <div className="line-clamp-1 text-ellipsis text-s2 text-[#F7F1E3]">{card.title}</div>
+                        <div className="pb-3 pt-6 lg:px-2">
+                          <div className="line-clamp-1 text-ellipsis text-b1-b text-[#F7F1E3] md:text-s3 lg:text-s2">
+                            {card.title}
+                          </div>
                           <p className="mt-4 text-b2 text-[#F7F1E3B8]">{card.description}</p>
                         </div>
                       </div>
@@ -71,22 +85,18 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
               ))}
             </Swiper>
 
-            {/* navigations */}
-            {boundary !== 'start' && (
-              <SliderNav
-                type="prev"
-                className="absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-4 lg:left-0"
-              />
-            )}
-            {boundary !== 'end' && (
-              <SliderNav
-                type="next"
-                className="absolute right-6 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 md:right-4 lg:right-0"
-              />
-            )}
+            <SliderNav
+              type="prev"
+              className="absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-4 lg:left-0"
+            />
+
+            <SliderNav
+              type="next"
+              className="absolute right-6 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 md:right-4 lg:right-0"
+            />
           </div>
-          {/* thumb wrapper */}
-          <div className="h-14"></div>
+          {/* pagination */}
+          <div id={bulletWrapperId} className="mt-5.5 flex h-10 w-full justify-center gap-2 md:mt-13"></div>
         </SliderContextProvider>
       </Container>
     </section>
