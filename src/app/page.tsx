@@ -9,6 +9,7 @@ import {
   FAQSection,
   EventLocationSearchSection,
 } from '@/app/_components';
+import GiftClaimBanner from '@/components/common/gift-claim-banner';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       <BookRevelationSection />
       <IncludedTopicsSection />
+      <GiftClaimBanner href="#" />
       <EventLocationSearchSection />
       <FAQSection />
       <FreeAdmissionPromo />

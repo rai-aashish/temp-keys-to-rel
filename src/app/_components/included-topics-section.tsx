@@ -19,7 +19,7 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
   const SLIDES = [...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES, ...INCLUDED_TOPICS_SLIDES];
 
   return (
-    <section className={cn(['relative mb-2 mt-16 h-screen overflow-hidden', className])} {...props}>
+    <section className={cn(['relative mb-16 mt-16 overflow-hidden', className])} {...props}>
       <Container>
         <h2 className="mb-12 text-center text-sh4 font-bold uppercase text-shiny drop-shadow-shiny md:text-sh3 lg:text-sh2">
           Topics Include these and more!
@@ -72,7 +72,6 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
             </Swiper>
 
             {/* navigations */}
-
             {boundary !== 'start' && (
               <SliderNav
                 type="prev"
@@ -86,6 +85,8 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
               />
             )}
           </div>
+          {/* thumb wrapper */}
+          <div className="h-14"></div>
         </SliderContextProvider>
       </Container>
     </section>
