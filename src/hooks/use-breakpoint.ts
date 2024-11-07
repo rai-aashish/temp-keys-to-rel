@@ -8,8 +8,16 @@ const breakpointMap = {
   '2xl': 1536,
 };
 
-const useBreakpoint = (breakpoint: keyof typeof breakpointMap) => {
-  return useMediaQuery(`(max-width: ${breakpoint}px)`);
+type TOptions = {
+  matchedCallback?: () => void;
+  unMatchedCallback?: () => void;
+};
+
+const useBreakpoint = (breakpoint: keyof typeof breakpointMap, options?: TOptions) => {
+  const bp = breakpointMap[breakpoint];
+  return useMediaQuery(`(min-width: ${bp}px)`, {
+    ...options,
+  });
 };
 
 export { useBreakpoint };

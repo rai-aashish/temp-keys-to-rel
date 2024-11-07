@@ -7,15 +7,16 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import React from 'react';
 interface IEventSearchProps {
   className?: string;
+  placeholder?: string;
 }
 
-function EventSearch({ className }: IEventSearchProps) {
+function EventSearch({ className, placeholder }: IEventSearchProps) {
   return (
     <div className={cn(['', className])}>
       <Input
         data-autofocus
-        leftSection={<Search className="mx-1 size-6 opacity-60 group-has-[input:focus]:opacity-100" />}
-        placeholder="Search by your location, church name, city, street address, postal code..."
+        leftSection={<Search className="mx-1 size-6 shrink-0 opacity-60 group-has-[input:focus]:opacity-100" />}
+        placeholder={placeholder || 'Search by your location, church name, city, street address, postal code...'}
         classNames={{
           wrapper:
             'p-2 md:p-3  group bg-[#F7F1E30D] border-[#F7F1E31F] has-[input:focus]:border-white hover:border-white/50',
@@ -25,7 +26,7 @@ function EventSearch({ className }: IEventSearchProps) {
           <Button
             variant="unstyled"
             size="none"
-            className="size-8 rounded-full bg-[#1E1E1EB8] text-[#F7F1E3] md:size-11"
+            className="size-8 shrink-0 rounded-full bg-[#1E1E1EB8] text-[#F7F1E3] md:size-11"
             onClick={(e) => {
               e.stopPropagation();
             }}

@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { cn } from '@/lib';
-import { FieldDescription, FieldError, Label } from '@/components/ui';
 import { useMergeRefs } from '@floating-ui/react';
+import { FieldDescription, FieldError, Label } from '@/components/ui';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -56,7 +56,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             type={type}
             className={cn(
-              'grow border-none bg-transparent outline-none placeholder:text-muted-foreground',
+              'w-full grow border-none bg-transparent outline-none placeholder:text-muted-foreground',
               classNames?.input,
             )}
             ref={mergedRef}

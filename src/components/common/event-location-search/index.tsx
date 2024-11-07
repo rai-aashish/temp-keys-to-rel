@@ -26,18 +26,27 @@ const MOCK_EVENTS: Array<Partial<ChurchEvent>> = [
 
 interface IEventLocationSearchProps {
   className?: string;
+  variant?: 'mobile-nav' | 'default';
 }
 
 const EventLocationSearch = (props: IEventLocationSearchProps) => {
   return (
     <div
       className={cn([
-        'mx-auto max-w-[1500px] rounded-2xl border-2 border-[#FFFFFF24] bg-[#181818A6] px-4 py-5 backdrop-blur-bg md:px-6 lg:py-8',
+        props.variant === 'mobile-nav'
+          ? ''
+          : 'mx-auto max-w-[1500px] rounded-2xl border-2 border-[#FFFFFF24] bg-[#181818A6] px-4 py-5 backdrop-blur-bg md:px-6 lg:py-8',
         props?.className,
       ])}
     >
-      <h2 className="text-center text-sh4 font-bold md:text-start md:text-sh2">Find a Location Near you!</h2>
-      <EventSearch className="mb-6 mt-3 lg:mb-11 lg:mt-5" />
+      {props.variant !== 'mobile-nav' && (
+        <h2 className="text-center text-sh4 font-bold md:text-start md:text-sh2">Find a Location Near you!</h2>
+      )}
+
+      <EventSearch
+        className="mb-6 mt-3 lg:mb-11 lg:mt-5"
+        placeholder={props.variant === 'mobile-nav' ? 'Search by your location' : ''}
+      />
 
       <div className={cn(['flex gap-x-4', 'flex-col-reverse gap-y-4 md:gap-y-6 lg:flex-row'])}>
         <div className="basis-[390px] rounded-xl border-[1.2px] border-stroke bg-[#6361610F] px-1 py-3">
@@ -54,7 +63,7 @@ const EventLocationSearch = (props: IEventLocationSearchProps) => {
         <div
           className={cn([
             'grid grow place-items-center rounded-xl border-[1.2px] border-stroke bg-white/10',
-            'aspect-[320/280] md:aspect-[654/420] lg:aspect-auto',
+            props.variant === 'mobile-nav' ? 'aspect-[335/206]' : 'aspect-[320/280] md:aspect-[654/420] lg:aspect-auto',
           ])}
         >
           <span className="text-h3 opacity-30">(MAP HERE)</span>

@@ -8,3 +8,4 @@ export * from './scroll-area';
 export * from './field-error';
 export * from './field-description';
 export * from './alert-dialog';
+export * from './dialog';
