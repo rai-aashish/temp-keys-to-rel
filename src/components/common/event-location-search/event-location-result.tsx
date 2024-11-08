@@ -44,16 +44,10 @@ const EventLocationResult = ({ className, as = 'div', event }: IEventLocationRes
       </ul>
 
       <div className="mt-4 flex items-center gap-4">
-        <Button variant="outlined-secondary">Learn More</Button>
-        <ButtonLink
-          href="#"
-          variant="outlined-secondary"
-          className="bg-[#F7F1E31A]"
-          classNames={{
-            rightIconWrapper: 'bg-[#FFBD28] text-[#131313]',
-          }}
-          rightIcon={ArrowUpRight}
-        >
+        <Button variant="outlined" size="sm">
+          Learn More
+        </Button>
+        <ButtonLink href="#" variant="outlined-secondary" iconVariant="primary" size="sm" rightIcon={ArrowUpRight}>
           Register Now
         </ButtonLink>
       </div>

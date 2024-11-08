@@ -40,16 +40,31 @@ const buttonVariants = tv(
           iconWrapper: 'bg-[#FFBD28] text-[#1E1E1E]',
           icon: '',
         },
-        'outlined-secondary': {
+        outlined: {
           root: 'border border-[#F7F1E31F] bg-[#F7F1E305] text-[#F7F1E3]',
+          iconWrapper: 'bg-[#F7F1E3] text-[#131313]',
+        },
+        'outlined-secondary': {
+          root: 'border border-[#F7F1E31F] bg-[#F7F1E31A] text-[#F7F1E3]',
           iconWrapper: 'bg-[#F7F1E3] text-[#131313]',
         },
         destructive: 'bg-destructive text-destructive-foreground data-[disabled=false]:hover:bg-destructive/90',
       },
+      iconVariant: {
+        unstyled: {
+          iconWrapper: '',
+        },
+        primary: {
+          iconWrapper: 'bg-[#FFBD28] text-[#1E1E1E]',
+        },
+        secondary: {
+          iconWrapper: 'bg-[#F7F1E31A] text-[#F7F1E3]',
+        },
+      },
       size: {
         sm: {
-          root: 'gap-1 rounded-[12.5rem] px-3 py-1 text-bu-s font-bold data-[has-left-icon=true]:pl-2 data-[has-right-icon=true]:pr-2 xs:gap-2',
-          iconWrapper: 'size-7',
+          root: 'gap-2 rounded-[12.5rem] px-4 py-2 text-bu-s font-bold data-[has-left-icon=true]:pl-4 data-[has-right-icon=true]:pr-2',
+          iconWrapper: 'size-5.5',
           icon: 'size-3.5',
         },
         md: {
@@ -143,12 +158,13 @@ function ConditionalButtonComponent({
   variant,
   size,
   classNames,
+  iconVariant,
   ref,
   ...props
 }: { asLink?: boolean } & (ButtonProps | ButtonLinkProps)) {
   const Tag = (asLink ? Link : 'button') as React.ElementType;
 
-  const { root, iconWrapper, icon } = buttonVariants({ variant, size });
+  const { root, iconWrapper, icon } = buttonVariants({ variant, iconVariant, size });
 
   const isDisabled = disabled || loading;
   const hasLeftIcon = Boolean(LeftIcon);

@@ -4,7 +4,7 @@ import Link, { LinkProps } from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 import { cn } from '@/lib';
-import BrandLogo from '@/assets/logo.webp';
+import BrandLogo from '@/assets/logo-plain.webp';
 import Container from '@/components/common/container';
 import { FOOTER_LINKS, FOOTER_MISCEILLANEOUS_LINKS } from '@/config/footer';
 

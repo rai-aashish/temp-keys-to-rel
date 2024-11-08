@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { MapPin, Search } from 'lucide-react';
 
 import HeroImage from '@/assets/hero-image.webp';
 import Container from '@/components/common/container';
 import { ButtonLink, Typography } from '@/components/ui';
-import { MapPin, Pin, Search } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -35,6 +35,7 @@ const HeroSection = () => {
           <ButtonLink
             href="#search_location"
             variant="secondary"
+            iconVariant="primary"
             rightIcon={Search}
             leftIcon={() => <span className="invisible md:hidden"></span>}
             classNames={{
@@ -42,7 +43,7 @@ const HeroSection = () => {
             }}
             className="justify-between self-stretch md:grow-0 md:justify-center md:self-end md:data-[has-left-icon=true]:pl-6 lg:self-center"
           >
-            Search Location
+            Search Locations
           </ButtonLink>
         </Container>
       </div>
