@@ -8,10 +8,16 @@ import BookImage from '@/assets/hero-image.webp';
 import Container from '@/components/common/container';
 import { cn } from '@/lib';
 
-const FreeAdmissionPromo = () => {
+const widthClassName = 'mx-auto md:max-w-[calc(100%-30px)] lg:max-w-[62.5rem]';
+
+interface IFreeAdmissionPromoProps {
+  className?: string;
+}
+
+const FreeAdmissionPromo = ({ className }: IFreeAdmissionPromoProps) => {
   return (
-    <Container className="relative md:pb-15 md:pt-21 lg:pb-15 lg:pt-14">
-      <div className="relative isolate mx-auto md:mb-14 md:min-h-[14.5rem] md:max-w-[calc(100%-30px)] lg:mb-22 lg:h-[21.625rem] lg:max-w-[62.5rem]">
+    <Container className={cn(['relative md:pb-15 md:pt-21 lg:pb-15 lg:pt-14', className])}>
+      <div className={cn([widthClassName, 'relative isolate md:mb-14 md:min-h-[14.5rem] lg:mb-22 lg:h-[21.625rem]'])}>
         <div className="h-full w-full overflow-hidden rounded-xl shadow-2xl shadow-[black]">
           <div className="relative flex h-full flex-col md:flex-row">
             {/* LEFT section */}
@@ -78,4 +84,4 @@ const FreeAdmissionPromo = () => {
   );
 };
 
-export { FreeAdmissionPromo };
+export { widthClassName, FreeAdmissionPromo };

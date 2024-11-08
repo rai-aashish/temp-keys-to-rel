@@ -27,7 +27,7 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
         </h2>
       </Container>
 
-      <Container className="-mx-sm-screen-gutter md:-mx-md-screen-gutter lg:mx-auto">
+      <Container className="px-0 md:px-0 lg:mx-auto">
         <SliderContextProvider swiper={swiper}>
           <div className="relative">
             <Swiper
@@ -70,7 +70,7 @@ function IncludedTopicsSection({ className, ...props }: React.ComponentPropsWith
                     return (
                       <div
                         data-active={isActive}
-                        className="bg-glassmorphic h-full rounded-2xl border-[0.1875rem] border-[#FFFFFF0E] p-2 data-[active=false]:opacity-30 md:p-3 lg:data-[active=false]:opacity-100"
+                        className="h-full rounded-2xl border-[0.1875rem] border-[#FFFFFF0E] p-2 bg-glassmorphic data-[active=false]:opacity-30 md:p-3 lg:data-[active=false]:opacity-100"
                       >
                         <div className="relative aspect-[256/185] overflow-hidden rounded-t-xl md:aspect-[305/225] lg:aspect-[342/295]">
                           <Image src={card.image.src} alt={card.image.alt} fill className="object-cover" />
