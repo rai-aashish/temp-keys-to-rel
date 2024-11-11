@@ -23,8 +23,9 @@ const FAQSection = () => {
             href="#"
             rightIcon={ArrowUpRight}
             variant="outlined-secondary"
+            size="md"
             leftIcon={() => <span />}
-            className="w-full justify-between md:w-[unset]"
+            className="w-full justify-between text-bu-s data-[has-left-icon=true]:pl-6 md:w-[unset]"
             classNames={{
               leftIconWrapper: 'w-0.5 invisible md:hidden',
             }}
