@@ -1,9 +1,15 @@
-import { FreeAdmissionSection, SpeakerSection, SpecificEventLocation } from '@/app/[slug]/_components';
+import {
+  FreeAdmissionSection,
+  SpeakerSection,
+  SpecificEventLocation,
+  EventRegisterBlock,
+} from '@/app/[slug]/_components';
 
 import { BookRevelationSection, FAQSection, HeroSection, IncludedTopicsSection } from '@/app/_components';
 import TestimonialsSlider from '@/app/_components/testimonial-slider';
 import GiftClaimBanner from '@/components/common/gift-claim-banner';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: Promise<{
@@ -22,9 +28,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // Server Component
 export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  if (!['1', '2'].includes(slug)) {
+    notFound();
+  }
+
   return (
     <>
-      <HeroSection />
+      <HeroSection>
+        <EventRegisterBlock />
+      </HeroSection>
       <BookRevelationSection />
       <FreeAdmissionSection />
       <IncludedTopicsSection />

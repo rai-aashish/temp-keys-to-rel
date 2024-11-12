@@ -86,6 +86,19 @@
   }
 
 
+
+
+
+  /* wip for shiny text */
+    .shiny{
+      --bg:#1E1E1E;
+      color: #ccbc9a97;
+      text-shadow: 0px 16px 10px var(--bg), 0 0 0 #fff,0px 16px 10px var(--bg);     
+      filter: drop-shadow(0 0 279px rgba(246,241,230,27%)); 
+    }
+  
+  
+
 }
 
 

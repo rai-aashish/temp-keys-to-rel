@@ -8,6 +8,7 @@ import {
   FreeAdmissionPromo,
   FAQSection,
   EventLocationSearchSection,
+  EventSearchBlock,
 } from '@/app/_components';
 import GiftClaimBanner from '@/components/common/gift-claim-banner';
 import TestimonialsSlider from '@/app/_components/testimonial-slider';
@@ -16,7 +17,9 @@ export default function Home() {
   return (
     <>
       <GiftClaim />
-      <HeroSection />
+      <HeroSection>
+        <EventSearchBlock />
+      </HeroSection>
       <BookRevelationSection />
       <IncludedTopicsSection />
       <GiftClaimBanner href="#" />
