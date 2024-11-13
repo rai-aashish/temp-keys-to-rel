@@ -1,7 +1,8 @@
 import React from 'react';
 
+import Container from '@/components/common/container';
 import { ButtonLink, Typography } from '@/components/ui';
-import { Container, MapPin, Search } from 'lucide-react';
+import { MapPin, Search } from 'lucide-react';
 
 const EventSearchBlock = () => {
   return (

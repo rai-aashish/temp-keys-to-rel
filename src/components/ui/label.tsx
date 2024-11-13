@@ -5,20 +5,22 @@ const Label = React.forwardRef<
   HTMLLabelElement,
   React.ComponentPropsWithRef<'label'> & {
     requiredLabel?: boolean;
+    as?: React.ElementType;
   }
->(({ className, children, requiredLabel, ...props }, ref) => {
+>(({ className, children, as = 'label', requiredLabel, ...props }, ref) => {
+  const Tag = as;
   return (
-    <label
+    <Tag
       ref={ref}
       className={cn([
-        'text-sm mb-1 inline-block font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        'inline-block text-b1 peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
         requiredLabel && ["after:inline-block after:content-['*']"],
         className,
       ])}
       {...props}
     >
       {children}
-    </label>
+    </Tag>
   );
 });
 

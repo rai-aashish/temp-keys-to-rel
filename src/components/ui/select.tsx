@@ -8,7 +8,6 @@ import { cn } from '@/lib';
 import { Label } from '@/components/ui/label';
 import { FieldError } from '@/components/ui/field-error';
 import { FieldDescription } from '@/components/ui/field-description';
-import { fancyHoverClassName } from '@/config/styles';
 
 const Select = SelectPrimitive.Root;
 
@@ -27,9 +26,9 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       'group border',
       'border-[rgba(208,198,176,0.2)]',
-      'text-sm flex h-12 w-full items-center justify-between rounded-md bg-[#2B2A2A] p-3 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
-      'placeholder:text-muted-foreground',
-      fancyHover ? fancyHoverClassName : 'hover:border-[rgba(208,198,176,0.5)]',
+      'flex h-12 w-full items-center justify-between rounded-md bg-[#2B2A2A] p-3 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      '[&[data-placeholder]>span]:text-muted-foreground',
+      fancyHover ? 'gradient-hover-border' : 'hover:border-[rgba(208,198,176,0.5)]',
 
       className,
     )}
@@ -37,7 +36,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50 group-hover:opacity-100" />
+      <ChevronDown className="size-6 opacity-50 group-hover:opacity-100" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -125,8 +124,9 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'text-sm relative flex w-full cursor-default select-none items-center rounded-sm py-3 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-      textCenter ? 'justify-center px-3 text-center' : 'pl-9 pr-3',
+      'text-sm relative flex w-full cursor-default select-none items-center rounded-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'py-2 md:py-3',
+      textCenter ? 'justify-center px-3 text-center' : 'pr-3 md:pl-9',
       'focus:bg-[rgba(255,255,255,0.13)]',
       className,
     )}
@@ -190,7 +190,7 @@ function SelectField({
       <FieldDescription>{description}</FieldDescription>
 
       <Select {...props}>
-        <SelectTrigger fancyHover={fancyHover} className="data-[placeholder]:text-muted-foreground">
+        <SelectTrigger fancyHover={fancyHover}>
           <SelectValue placeholder={placeholder ?? 'Select'} />
         </SelectTrigger>
 

@@ -96,6 +96,28 @@
 }
 
 @layer utilities {
+  .gradient-hover-border {
+    @apply relative isolate;
+    @apply before:opacity-0;
+
+    @apply before:duration-150;
+    @apply before:z-[-2];
+    @apply before:bg-[linear-gradient(91.09deg,_#FFBD28_-1.76%,_#EEFF28_60.26%,_#FF4F28_117.77%)];
+    @apply before:rounded-[inherit];
+    @apply before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:abs-center;
+    @apply after:abs-center;
+    @apply after:z-[-1] after:h-full after:w-full after:rounded-[inherit] after:bg-[inherit];
+
+    /*    active state classNames */
+    @apply hover:before:opacity-100;
+    @apply focus:before:opacity-100;
+    @apply has-[input:focus]:before:opacity-100;
+    @apply data-[state=open]:before:opacity-100;
+
+    /* shadow */
+    @apply hover:shadow-[0px_0px_8px_0px_rgba(255,189,40,0.13),0px_0px_8px_1px_rgba(255,255,255,0.15)];
+  }
+
   .swiper-pagination-bullet {
     @apply inline-block size-2 cursor-pointer rounded-full border border-white/10 hover:bg-white/50 [&.active]:bg-white;
   }

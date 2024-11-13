@@ -1,9 +1,10 @@
-import Container from '@/components/common/container';
-import { ButtonLink, buttonVariants } from '@/components/ui';
-import { cn } from '@/lib';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import React from 'react';
+
+import { cn } from '@/lib';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import { buttonVariants } from '@/components/ui';
+import Container from '@/components/common/container';
 
 interface IFormWrapperProps extends React.ComponentPropsWithRef<'div'> {
   className?: string;
@@ -16,10 +17,22 @@ function FormWrapper(props: IFormWrapperProps) {
   return (
     <Container
       gridLayout
-      className={cn(['mt-[7.625rem] rounded-2xl border border-[#323232] p-10 bg-glassmorphic', className])}
+      className={cn([
+        'mt-[7.625rem] rounded-2xl border border-[#323232] bg-glassmorphic',
+        'gap-y-10 p-4 md:px-10 md:py-6 lg:px-10 lg:py-10',
+        className,
+      ])}
       {...restProps}
     >
-      <div className="relative col-span-4 border-r-2 border-dashed border-[rgba(255,255,255,0.2)]">
+      <div
+        className={cn([
+          'relative border-dashed border-[rgba(255,255,255,0.2)]',
+          'border-b lg:border-b-0 lg:border-r-2',
+          'pb-10 lg:pb-0 lg:pr-6',
+          'col-span-full',
+          'lg:col-span-4',
+        ])}
+      >
         <div>
           <Link href="#" className="inline-flex items-center gap-2 text-b1 font-medium">
             <span
@@ -34,15 +47,23 @@ function FormWrapper(props: IFormWrapperProps) {
           </Link>
         </div>
 
-        <div className={cn(['relative mt-9', 'text-[3rem] font-bold leading-[-0.02em] text-shiny', 'leading-[1.1]'])}>
-          Reserve
-          <br /> your seat
-          <br /> and claim
-          <br /> your Free Gift!
+        <div
+          className={cn([
+            'relative mt-6 md:mt-4 lg:mt-9',
+            'text-[shiny]',
+            'text-h4 md:text-h1',
+            'font-bold lg:text-[3rem] lg:leading-[-0.02em]',
+            'lg:leading-[1.1]',
+          ])}
+        >
+          Reserve <br />
+          your seat
+          <br className="hidden md:inline" /> and claim
+          <br className="hidden lg:inline" /> your Free Gift!
         </div>
       </div>
 
-      <div className="col-span-7 px-6 pr-10">{children}</div>
+      <div className="col-span-full lg:col-span-7 lg:px-6 lg:pr-10">{children}</div>
     </Container>
   );
 }

@@ -22,7 +22,7 @@ export default async function RegisterPage({ params }: PageProps) {
   const { slug } = await params;
   return (
     <>
-      <Container>
+      <Container className="mb-10 lg:mb-15">
         <ReservationForm />
       </Container>
     </>

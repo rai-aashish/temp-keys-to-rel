@@ -27,11 +27,16 @@ function FormFieldGroup({
   return (
     <div className={cn(['', className, classNames?.root])} {...props}>
       {hasTitle && (
-        <div className={cn(['mb-4 flex items-center gap-3 text-s1 text-[rgba(247,241,227,1)]', classNames?.title])}>
+        <div
+          className={cn([
+            'mb-4 flex items-center gap-3 text-s3 text-[rgba(247,241,227,1)] md:text-s1',
+            classNames?.title,
+          ])}
+        >
           {Boolean(number) && (
             <span
               className={cn([
-                'inline-grid size-7.5 place-items-center rounded border-[rgba(99,97,97,0.06)] text-b1 font-extrabold',
+                'inline-grid size-7.5 place-items-center rounded border-[rgba(99,97,97,0.06)] text-b2 font-extrabold md:text-b1',
                 'rounded border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.06)]',
                 'backdrop-blur-bg',
                 classNames?.number,

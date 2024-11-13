@@ -4,7 +4,6 @@ import * as React from 'react';
 import { cn } from '@/lib';
 import { useMergeRefs } from '@floating-ui/react';
 import { FieldDescription, FieldError, Label } from '@/components/ui';
-import { fancyHoverClassName } from '@/config/styles';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -50,11 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn([''], className)}>
         {label && (
-          <Label
-            htmlFor={id || generatedId}
-            className="text-sm mb-2 inline-block font-medium"
-            requiredLabel={props.required}
-          >
+          <Label htmlFor={id || generatedId} className="mb-2" requiredLabel={props.required}>
             {label}
           </Label>
         )}
@@ -76,7 +71,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'ring-offset-background',
             rounded ? 'rounded-[12.5rem]' : 'rounded-[0.5rem]',
             // hover state
-            fancyHover ? fancyHoverClassName : 'hover:border-[rgba(208,198,176,0.5)]',
+            fancyHover ? 'gradient-hover-border' : 'hover:border-[rgba(208,198,176,0.5)]',
             classNames?.wrapper,
           ])}
         >
