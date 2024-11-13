@@ -145,7 +145,13 @@ const base = {
       backdropBlur: {
         bg: '2.125rem',
       },
+
+      backgroundImage: {
+        'glassmorphic-border':
+          'linear-gradient(163.89deg, rgba(255, 255, 255, 0.14) -14.65%, rgba(255, 255, 255, 0.056) 53.3%, rgba(255, 255, 255, 0.14) 117.29%)',
+      },
     },
+
     container: {
       center: 'true',
       padding: {
@@ -199,6 +205,18 @@ const base = {
       addUtilities({
         '.shadow-highlight': {
           'box-shadow': `0.3125rem 0.4375rem 0.5rem 0rem #00000033`,
+        },
+      });
+    }),
+
+    // position utils
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.abs-center': {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
         },
       });
     }),

@@ -20,6 +20,9 @@ const buttonVariants = tv(
     },
     variants: {
       variant: {
+        glassmorphic: {
+          root: 'border-[#323232] bg-glassmorphic-border text-white',
+        },
         menu: {
           root: 'place-items-center justify-center rounded-full bg-transparent hover:bg-black/10',
           iconWrapper: '',
@@ -60,6 +63,7 @@ const buttonVariants = tv(
         secondary: {
           iconWrapper: 'bg-[#F7F1E31A] text-[#F7F1E3]',
         },
+        dark: 'bg-[#1E1E1E] text-white',
       },
       size: {
         sm: {

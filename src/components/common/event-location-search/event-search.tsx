@@ -14,6 +14,7 @@ function EventSearch({ className, placeholder }: IEventSearchProps) {
   return (
     <div className={cn(['', className])}>
       <Input
+        rounded
         data-autofocus
         leftSection={<Search className="mx-1 size-6 shrink-0 opacity-60 group-has-[input:focus]:opacity-100" />}
         placeholder={placeholder || 'Search by your location, church name, city, street address, postal code...'}

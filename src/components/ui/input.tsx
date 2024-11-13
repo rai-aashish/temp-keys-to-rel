@@ -4,6 +4,7 @@ import * as React from 'react';
 import { cn } from '@/lib';
 import { useMergeRefs } from '@floating-ui/react';
 import { FieldDescription, FieldError, Label } from '@/components/ui';
+import { fancyHoverClassName } from '@/config/styles';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -11,6 +12,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   error?: string;
   leftSection?: React.ReactNode;
   rightSection?: React.ReactNode;
+  rounded?: boolean;
+  fancyHover?: boolean;
   classNames?: {
     wrapper?: string;
     input?: string;
@@ -19,7 +22,20 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, type, id, error, label, description, leftSection, rightSection, classNames, ...props },
+    {
+      className,
+      type,
+      id,
+      rounded,
+      fancyHover,
+      error,
+      label,
+      description,
+      leftSection,
+      rightSection,
+      classNames,
+      ...props
+    },
     forwardedRef,
   ) => {
     const generatedId = React.useId();
@@ -34,7 +50,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn([''], className)}>
         {label && (
-          <Label htmlFor={id || generatedId} className="text-sm font-medium" requiredLabel={props.required}>
+          <Label
+            htmlFor={id || generatedId}
+            className="text-sm mb-2 inline-block font-medium"
+            requiredLabel={props.required}
+          >
             {label}
           </Label>
         )}
@@ -43,12 +63,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           onClick={handleWrapperClick}
           className={cn([
             'flex items-center gap-x-2 duration-150',
-            'rounded-[200px] px-3 py-[0.8438rem] hover:border-black/20',
-            'border border-[#1E1E1E1F] has-[input:focus-visible]:outline-none',
+            'p-3',
+            'bg-[#2B2A2A]',
+            'border',
+            // 'border-[#1E1E1E1F]',
+            'border-[rgba(208,198,176,0.2)]',
+
+            'has-[input:focus-visible]:outline-none',
             // 'has-[input:focus]:outline-1 has-[input:focus-visible]:ring-1 has-[input:focus-visible]:ring-ring has-[input:focus-visible]:ring-offset-1',
             'has-[input:disabled]:cursor-not-allowed has-[input:disabled]:disabled:opacity-50',
             Boolean(error) && 'border-destructive',
             'ring-offset-background',
+            rounded ? 'rounded-[12.5rem]' : 'rounded-[0.5rem]',
+            // hover state
+            fancyHover ? fancyHoverClassName : 'hover:border-[rgba(208,198,176,0.5)]',
             classNames?.wrapper,
           ])}
         >
@@ -56,7 +84,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             type={type}
             className={cn(
-              'w-full grow border-none bg-transparent outline-none placeholder:text-muted-foreground',
+              'h-full w-full grow border-none bg-transparent outline-none placeholder:text-muted-foreground',
               classNames?.input,
             )}
             ref={mergedRef}

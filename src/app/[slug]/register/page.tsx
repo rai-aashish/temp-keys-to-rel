@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import Container from '@/components/common/container';
+
+import { ReservationForm } from './_components';
 
 interface PageProps {
   params: Promise<{
@@ -19,7 +22,9 @@ export default async function RegisterPage({ params }: PageProps) {
   const { slug } = await params;
   return (
     <>
-      <h1>Register for event: {slug}</h1>
+      <Container>
+        <ReservationForm />
+      </Container>
     </>
   );
 }

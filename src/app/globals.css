@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --background: 0 0% 10%;
@@ -31,7 +29,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --stroke-default:0 0% 100% / 0.14;
+    --stroke-default: 0 0% 100% / 0.14;
 
     /* screen gutter */
     --lg-screen-gutter: 3.75rem;
@@ -85,25 +83,20 @@
     @apply bg-background text-foreground;
   }
 
-
-
-
-
   /* wip for shiny text */
-    .shiny{
-      --bg:#1E1E1E;
-      color: #ccbc9a97;
-      text-shadow: 0px 16px 10px var(--bg), 0 0 0 #fff,0px 16px 10px var(--bg);     
-      filter: drop-shadow(0 0 279px rgba(246,241,230,27%)); 
-    }
-  
-  
-
+  .shiny {
+    --bg: #1e1e1e;
+    color: #ccbc9a97;
+    text-shadow:
+      0px 16px 10px var(--bg),
+      0 0 0 #fff,
+      0px 16px 10px var(--bg);
+    filter: drop-shadow(0 0 279px rgba(246, 241, 230, 27%));
+  }
 }
 
-
-@layer utilities{
-  .swiper-pagination-bullet{
-    @apply size-2 inline-block hover:bg-white/50 cursor-pointer rounded-full border border-white/10 [&.active]:bg-white;
+@layer utilities {
+  .swiper-pagination-bullet {
+    @apply inline-block size-2 cursor-pointer rounded-full border border-white/10 hover:bg-white/50 [&.active]:bg-white;
   }
 }

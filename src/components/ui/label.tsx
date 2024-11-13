@@ -11,8 +11,8 @@ const Label = React.forwardRef<
     <label
       ref={ref}
       className={cn([
-        'mb-1 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-        requiredLabel && ["after:inline-block after:text-[red] after:content-['*']"],
+        'text-sm mb-1 inline-block font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        requiredLabel && ["after:inline-block after:content-['*']"],
         className,
       ])}
       {...props}
